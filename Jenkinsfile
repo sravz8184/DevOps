@@ -12,5 +12,10 @@ pipeline {
            checkout([$class: 'GitSCM', branches: [[name: '*/Test']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/sravz8184/DevopsBasics.git']]]) 
             }
           }
+        stage("build") {
+            steps{
+                sh 'mvn clean package'
+            }
+        }
     }
 }
